@@ -5,14 +5,15 @@
           :dependencies   '[[org.clojure/clojure "RELEASE"]
                             [boot/core "RELEASE" :scope "test"]
                             [adzerk/boot-test "RELEASE" :scope "test"]
+                            [adzerk/bootlaces "0.1.13" :scope "test"]
                             [gorilla-repl "0.3.6"]])
 
 (task-options!
  pom {:project     project
       :version     version
       :description "start the gorilla repl"
-      :url         "https://github.com/ckampfe/boot-gorilla"
-      :scm         {:url "https://github.com/ckampfe/boot-gorilla"}
+      :url         "https://github.com/tdavis/boot-gorilla"
+      :scm         {:url "https://github.com/tdavis/boot-gorilla"}
       :license     {"Eclipse Public License"
                     "http://www.eclipse.org/legal/epl-v10.html"}})
 
@@ -22,3 +23,6 @@
   (comp (pom) (jar) (install)))
 
 (require '[adzerk.boot-test :refer [test]])
+(require '[adzerk.bootlaces :refer :all])
+
+(bootlaces! version)
